@@ -44,16 +44,17 @@ public:
         return _data[i];
     }
 
-    reference operator=(const_reference otherVec) {
+    Vector& operator=(const Vector& otherVec) {
         // copy assignment
 
         if (_data != nullptr) {
-            delete[] _data;
+            _alloc.deallocate(_data, _size * sizeof(value_type));
         }
 
         _cap = otherVec._cap;
         _size = otherVec._size;
-        _data = otherVec._data;
+        _data = _alloc.allocate(_cap);
+        memcpy(_data, otherVec._data, _size * sizeof(value_type));
 
         return *this;
     }

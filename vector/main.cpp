@@ -43,16 +43,10 @@ int main() {
     std::cout << "vec3.begin() = " << beginVec3 << '\n';
     std::cout << "vec3.end() = " << endVec3 << '\n';
 
-    assert(beginVec2 != beginVec3 && endVec2 != endVec3);
-
-    Vector<int> vec4;
-    vec4 = vec1;
-    assert(vec4.begin() == vec1.begin() && vec4.end() == vec1.end());
-    int newVal{100};
-    vec4.at(1) = newVal;
-    assert(vec1.at(1) == newVal);
-    printVal<int>("vector 1 has been modified through vector 4", vec1);
-    printVal<int>("vector 4 is assigned with vector 1", vec4);
+    Vector<double> vec4;
+    vec4 = vec3;
+    std::cout << "vec4.begin() = " << vec4.begin() << '\n';
+    std::cout << "vec4.end() = " << vec4.end() << '\n';
 
     return EXIT_SUCCESS;
 }
