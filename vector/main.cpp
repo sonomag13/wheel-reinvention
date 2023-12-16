@@ -31,7 +31,7 @@ int main() {
     printVal("vector 2 - values are pushed back", vec2);
 
     Vector<double> vec3(vec2);
-    printVal("vector 3 - copy-constructed by vec2", vec3);\
+    printVal("vector 3 - copy-constructed by vec2", vec3);
 
     Vector<double>::iterator beginVec2{vec2.begin()};
     Vector<double>::iterator endVec2{vec2.end()};

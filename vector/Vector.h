@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-template<typename T>
+template<class T>
 class Vector {
 public:
     // we use these typedefs for the sake of convention
@@ -116,8 +116,9 @@ public:
     }
 
     ~Vector() {
+        // destructor
         if (_data) {
-            delete[] _data;
+            _alloc.deallocate(_data, _cap);
         }
         _data = nullptr;
         _cap = _size = 0;
@@ -137,3 +138,5 @@ private:
     std::allocator<T> _alloc;
 
 };
+
+#include "Vector.cpp"
